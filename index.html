@@ -2,312 +2,257 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>NEXUS IPTV - #1 Premium IPTV Provider 2025 | 28K+ Channels 4K</title>
-  <meta name="description" content="28,000+ Live Channels • 150,000+ VOD • Anti-Freeze™ 6.0 • Instant Activation • 24/7 Support">
-  
-  <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700;900&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-  
-  <!-- Icons -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+  <title>COSMO IPTV - 2025 Best IPTV | 32K+ Channels 4K</title>
+  <meta name="description" content="32,000+ Channels • 170,000+ VOD • Anti-Freeze 7.0 • Instant Activation">
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"/>
-  
-  <!-- AOS Animation Library -->
   <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-  
+
   <style>
     :root {
-      --primary: #00ff9d;
-      --secondary: #ff00aa;
-      --dark: #0a0a1f;
-      --glass: rgba(15, 15, 40, 0.65);
-      --gradient: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      --primary: #00ffaa;
+      --secondary: #ff00ff;
+      --dark: #000814;
     }
     * { margin:0; padding:0; box-sizing:border-box; }
     body {
       font-family: 'Inter', sans-serif;
-      background: #0a0a1f;
       color: #fff;
+      background: #000;
       overflow-x: hidden;
-      background-image: url('https://images.unsplash.com/photo-1550745162-0161b9d31c5e?ixlib=rb-4.0.3&auto=format&fit=crop&q=80');
-      background-attachment: fixed;
-      background-size: cover;
+      min-height: 100vh;
     }
-    ::-webkit-scrollbar { width: 8px; }
-    ::-webkit-scrollbar-track { background: #111; }
-    ::-webkit-scrollbar-thumb { background: var(--primary); border-radius: 10px; }
 
+    /* Animated Earth + Satellite Background */
+    .space-bg {
+      position: fixed;
+      top: 0; left: 0; width: 100%; height: 100%;
+      z-index: -1;
+      background: radial-gradient(circle at center, #001233 0%, #000814 70%);
+    }
+    .earth {
+      position: absolute;
+      top: 50%; left: 50%;
+      width: 600px; height: 600px;
+      background: url('https://i.ibb.co.com/0jYkT7P/earth-4k.png') center/cover no-repeat;
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+      animation: rotateEarth 120s linear infinite;
+      box-shadow: 
+        inset -80px -80px 150px rgba(0,0,0,0.8),
+        0 0 200px rgba(0,255,170,0.3);
+      filter: blur(0.5px);
+    }
+    .satellite {
+      position: absolute;
+      width: 60px; height: 60px;
+      background: url('https://i.ibb.co.com/5Yc1Y3W/satellite.png') center/contain no-repeat;
+      top: 50%; left: 50%;
+      transform: translate(-50%, -50%);
+      animation: orbit 25s linear infinite;
+    }
+    .orbit-path {
+      position: absolute;
+      top: 50%; left: 50%;
+      width: 900px; height: 900px;
+      border: 1px dashed rgba(0,255,170,0.2);
+      border-radius: 50%;
+      transform: translate(-50%, -50%);
+    }
+
+    @keyframes rotateEarth {
+      from { transform: translate(-50%, -50%) rotate(0deg); }
+      to { transform: translate(-50%, -50%) rotate(360deg); }
+    }
+    @keyframes orbit {
+      from { transform: translate(-50%, -50%) rotate(0deg) translateX(450px) rotate(0deg); }
+      to { transform: translate(-50%, -50%) rotate(360deg) translateX(450px) rotate(-360deg); }
+    }
+
+    /* Rest of the design (same premium look) */
     header {
       position: fixed;
-      top: 0;
-      width: 100%;
-      padding: 1.5rem 5%;
+      top: 0; width: 100%;
+      padding: 1rem 5%;
+      background: rgba(0,8,20,0.85);
       backdrop-filter: blur(15px);
-      background: rgba(10,10,31,0.8);
       z-index: 1000;
-      border-bottom: 1px solid rgba(0,255,157,0.2);
+      border-bottom: 1px solid rgba(0,255,170,0.3);
     }
-    nav {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      max-width: 1400px;
-      margin: auto;
-    }
+    nav { max-width: 1400px; margin: auto; display: flex; justify-content: space-between; align-items: center; }
     .logo {
       font-family: 'Orbitron', sans-serif;
-      font-size: 2rem;
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
       background: linear-gradient(90deg, var(--primary), var(--secondary));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
+    .menu-toggle { display: none; font-size: 1.8rem; cursor: pointer; color: var(--primary); }
+    .nav-links {
+      display: flex; gap: 2rem; align-items: center;
+    }
     .nav-links a {
-      color: #fff;
-      margin-left: 2.5rem;
-      font-weight: 600;
-      transition: 0.4s;
-      position: relative;
+      color: #fff; font-weight: 600; position: relative;
     }
     .nav-links a::after {
-      content: '';
-      position: absolute;
-      width: 0;
-      height: 2px;
-      bottom: -8px;
-      left: 0;
-      background: var(--primary);
-      transition: 0.4s;
+      content: ''; position: absolute; bottom: -8px; left: 0; width: 0; height: 2px;
+      background: var(--primary); transition: 0.4s;
     }
     .nav-links a:hover::after { width: 100%; }
 
     .hero {
-      height: 100vh;
+      min-height: 100vh;
       display: flex;
       align-items: center;
       justify-content: center;
       text-align: center;
-      position: relative;
-    }
-    .hero::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; width: 100%; height: 100%;
-      background: linear-gradient(135deg, rgba(0,255,157,0.3), rgba(255,0,170,0.4));
-      z-index: 1;
-    }
-    .hero-content {
-      position: relative;
-      z-index: 2;
-      max-width: 900px;
-      padding: 2rem;
+      padding: 0 5%;
     }
     .hero h1 {
       font-family: 'Orbitron', sans-serif;
-      font-size: 5rem;
-      background: linear-gradient(90deg, #00ff9d, #ff00aa);
+      font-size: clamp(3rem, 9vw, 7rem);
+      line-height: 1.1;
+      margin-bottom: 1rem;
+      background: linear-gradient(90deg, #00ffaa, #ff00ff);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      margin-bottom: 1rem;
-      animation: glow 2s ease-in-out infinite alternate;
+      animation: glow 3s ease-in-out infinite alternate;
     }
     @keyframes glow {
-      from { filter: drop-shadow(0 0 20px #00ff9d); }
-      to { filter: drop-shadow(0 0 40px #ff00aa); }
+      from { filter: drop-shadow(0 0 20px #00ffaa); }
+      to { filter: drop-shadow(0 0 50px #ff00ff); }
     }
     .btn {
-      padding: 1rem 2.5rem;
+      display: inline-block;
+      padding: clamp(1rem, 4vw, 1.4rem) clamp(2rem, 7vw, 3.5rem);
       margin: 1rem;
       border-radius: 50px;
       font-weight: bold;
-      display: inline-block;
+      font-size: clamp(1rem, 3.5vw, 1.2rem);
       transition: all 0.4s;
-      position: relative;
-      overflow: hidden;
-      z-index: 1;
+      cursor: pointer;
     }
-    .btn-primary {
-      background: var(--primary);
-      color: #000;
-    }
-    .btn-outline {
-      border: 2px solid var(--primary);
-      color: var(--primary);
-    }
-    .btn:hover { transform: translateY(-5px) scale(1.05); box-shadow: 0 20px 40px rgba(0,255,157,0.4); }
+    .btn-primary { background: var(--primary); color: #000; }
+    .btn-outline { border: 2px solid var(--primary); background: transparent; }
+    .btn:hover { transform: translateY(-8px) scale(1.1); box-shadow: 0 20px 40px rgba(0,255,170,0.5); }
 
-    section { padding: 100px 5%; max-width: 1400px; margin: auto; }
+    section { padding: 120px 5%; max-width: 1400px; margin: auto; position: relative; z-index: 2; }
     h2 {
       font-family: 'Orbitron', sans-serif;
-      font-size: 3.5rem;
+      font-size: clamp(2.5rem, 7vw, 4.5rem);
       text-align: center;
       margin-bottom: 4rem;
-      background: linear-gradient(90deg, #00ff9d, #ff00aa);
+      background: linear-gradient(90deg, var(--primary), var(--secondary));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
     }
-
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 2rem;
-      text-align: center;
-      margin: 5rem 0;
-    }
-    .stat-item h3 {
-      font-size: 4rem;
-      background: linear-gradient(var(--primary), var(--secondary));
-      -webkit-background-clip: text;
-      -webkit-text-fill-color: transparent;
-    }
-
     .pricing-table {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
       gap: 2rem;
     }
     .price-card {
-      background: var(--glass);
+      background: rgba(15,20,50,0.7);
       backdrop-filter: blur(15px);
       border-radius: 20px;
       padding: 3rem 2rem;
       text-align: center;
-      border: 1px solid rgba(0,255,157,0.2);
+      border: 1px solid rgba(0,255,170,0.3);
       transition: 0.5s;
-      position: relative;
-      overflow: hidden;
     }
-    .price-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: -100%;
-      width: 100%; height: 100%;
-      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
-      transition: 0.7s;
-    }
-    .price-card:hover::before { left: 100%; }
     .price-card:hover { transform: translateY(-20px); border-color: var(--primary); }
-    .popular {
-      border: 2px solid var(--primary);
-      transform: scale(1.08);
-    }
-    .popular::after {
-      content: 'BEST VALUE';
-      position: absolute;
-      top: 15px; right: -40px;
-      background: var(--primary);
-      color: #000;
-      padding: 5px 50px;
-      font-size: 0.9rem;
-      font-weight: bold;
-      transform: rotate(45deg);
-    }
 
-    footer {
-      background: rgba(0,0,0,0.8);
-      padding: 4rem 5% 2rem;
-      text-align: center;
-      border-top: 1px solid rgba(0,255,157,0.3);
+    /* Mobile Menu */
+    @media (max-width: 992px) {
+      .menu-toggle { display: block; }
+      .nav-links {
+        position: fixed; top: 70px; left: -100%; width: 100%; height: 100vh;
+        background: rgba(0,8,20,0.98); flex-direction: column; justify-content: center;
+        transition: 0.4s; gap: 3rem;
+      }
+      .nav-links.active { left: 0; }
+      .nav-links a { font-size: 1.6rem; }
     }
   </style>
 </head>
 <body>
 
+  <!-- Animated Space Background -->
+  <div class="space-bg">
+    <div class="orbit-path"></div>
+    <div class="earth"></div>
+    <div class="satellite"></div>
+  </div>
+
   <header>
     <nav>
-      <div class="logo">NEXUS<span style="color:var(--primary)">IPTV</span></div>
+      <div class="logo">COSMO<span style="color:var(--primary)">IPTV</span></div>
+      <div class="menu-toggle" onclick="document.querySelector('.nav-links').classList.toggle('active')">
+        <i class="fas fa-bars"></i>
+      </div>
       <div class="nav-links">
         <a href="#">Home</a>
         <a href="#pricing">Plans</a>
         <a href="#features">Features</a>
-        <a href="https://t.me/NexusIPTV_Official" target="_blank">Support</a>
-        <a href="https://t.me/NexusIPTV_Official" target="_blank" class="btn btn-primary">Login</a>
+        <a href="https://t.me/CosmoIPTV2025" target="_blank">Support</a>
+        <a href="https://t.me/CosmoIPTV2025" class="btn btn-primary">Login</a>
       </div>
     </nav>
   </header>
 
-  <section class="hero">
-    <div class="hero-content" data-aos="zoom-in">
-      <h1>28,000+ CHANNELS<br>IN CRYSTAL 4K</h1>
-      <p style="font-size:1.4rem; margin:1.5rem 0;">Zero Buffering • Instant Activation • Works Worldwide</p>
+  <section class="hero" data-aos="fade-up">
+    <div>
+      <h1>WORLDWIDE 4K<br>STREAMING FROM SPACE</h1>
+      <p style="font-size:1.4rem; margin:1.5rem 0;">32,000+ Channels • Zero Freeze • Instant Activation</p>
       <div>
-        <a href="https://t.me/NexusIPTV_Official" class="btn btn-primary">GET 24H FREE TRIAL</a>
+        <a href="https://t.me/CosmoIPTV2025" class="btn btn-primary">FREE 24H TRIAL</a>
         <a href="#pricing" class="btn btn-outline">View Plans</a>
       </div>
-      <p style="margin-top:2rem; opacity:0.9;">Limited offer ends in: <strong id="countdown">23:59:59</strong></p>
+      <p style="margin-top:2rem; font-size:1.1rem;">
+        <strong>Offer ends in: <span id="countdown">23:59:59</span></strong>
+      </p>
     </div>
   </section>
 
-  <section class="stats" data-aos="fade-up">
-    <div class="stat-item"><h3>28,000+</h3><p>Live Channels</p></div>
-    <div class="stat-item"><h3>150,000+</h3><p>Movies & Series</p></div>
-    <div class="stat-item"><h3>99.99%</h3><p>Uptime</p></div>
-    <div class="stat-item"><h3>180+</h3><p>Countries</p></div>
-  </section>
-
-  <section id="pricing">
-    <h2 data-aos="fade-up">Choose Your Plan</h2>
+  <section id="pricing" data-aos="fade-up">
+    <h2>Choose Your Plan</h2>
     <div class="pricing-table">
       <div class="price-card" data-aos="fade-up" data-aos-delay="100">
         <h3>1 Month</h3>
         <h2 style="font-size:4rem; color:var(--primary);">€15</h2>
-        <ul style="list-style:none; margin:2rem 0; text-align:left;">
-          <li><i class="fas fa-check" style="color:var(--primary)"></i> Full Channel List</li>
-          <li><i class="fas fa-check" style="color:var(--primary)"></i> 4K / FHD / HD</li>
-          <li><i class="fas fa-check" style="color:var(--primary)"></i> 24/7 Support</li>
-        </ul>
-        <a href="https://t.me/NexusIPTV_Official" class="btn btn-primary">Buy Now</a>
+        <a href="https://t.me/CosmoIPTV2025" class="btn btn-primary">Buy Now</a>
       </div>
-
-      <div class="price-card popular" data-aos="fade-up" data-aos-delay="200">
+      <div class="price-card" style="border:2px solid var(--primary); transform:scale(1.05);" data-aos="fade-up" data-aos-delay="200">
         <h3>6 Months</h3>
-        <h2 style="font-size:4rem; color:var(--primary);">€55</h2>
-        <p style="background:#000; display:inline-block; padding:5px 15px; border-radius:50px;">SAVE 39%</p>
-        <ul style="list-style:none; margin:2rem 0; text-align:left;">
-          <li><i class="fas fa-check" style="color:var(--primary)"></i> Everything in 1 Month</li>
-          <li><i class="fas fa-check" style="color:var(--primary)"></i> Free Updates</li>
-          <li><i class="fas fa-check" style="color:var(--primary)"></i> Priority Support</li>
-        </ul>
-        <a href="https://t.me/NexusIPTV_Official" class="btn btn-primary">Buy Now</a>
+        <h2 style="font-size:4rem; color:var(--primary);">€59</h2>
+        <p style="background:var(--primary); color:#000; padding:8px 20px; border-radius:50px;">SAVE 35%</p>
+        <a href="https://t.me/CosmoIPTV2025" class="btn btn-primary">Buy Now</a>
       </div>
-
       <div class="price-card" data-aos="fade-up" data-aos-delay="300">
         <h3>12 Months</h3>
         <h2 style="font-size:4rem; color:var(--primary);">€89</h2>
-        <p style="background:var(--primary); color:#000; display:inline-block; padding:5px 15px; border-radius:50px;">BEST VALUE – SAVE 70%</p>
-        <ul style="list-style:none; margin:2rem 0; text-align:left;">
-          <li><i class="fas fa-check" style="color:var(--primary)"></i> 2 Connections FREE</li>
-          <li><i class="fas fa-check" style="color:var(--primary)"></i> VIP Support</li>
-          <li><i class="fas fa-check" style="color:var(--primary)"></i> Lifetime Updates</li>
-        </ul>
-        <a href="https://t.me/NexusIPTV_Official" class="btn btn-primary">Buy Now</a>
+        <p style="background:#ff00ff; color:#fff; padding:8px 20px; border-radius:50px;">BEST VALUE</p>
+        <a href="https://t.me/CosmoIPTV2025" class="btn btn-primary">Buy Now</a>
       </div>
     </div>
   </section>
 
-  <footer>
-    <p>© 2025 NEXUS IPTV – Premium IPTV Service Worldwide</p>
-    <p><a href="https://t.me/NexusIPTV_Official" style="color:var(--primary);">Telegram</a> • 24/7 Live Support</p>
-  </footer>
-
-  <!-- AOS JS -->
   <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
   <script>
-    AOS.init({ duration: 1000, once: true });
+    AOS.init({ duration: 1200, once: true });
 
-    // Countdown Timer (24h from now)
-    function countdown() {
-      const end = new Date().getTime() + 24*60*60*1000;
-      const timer = setInterval(() => {
-        const now = new Date().getTime();
-        const distance = end - now;
-        const h = Math.floor((distance % (1000*60*60*24)) / (1000*60*60));
-        const m = Math.floor((distance % (1000*60*60)) / (1000*60));
-        const s = Math.floor((distance % (1000*60)) / 1000);
-        document.getElementById("countdown").innerHTML = `${h.toString().padStart(2,'0')}:${m.toString().padStart(2,'0')}:${s.toString().padStart(2,'0')}`;
-        if (distance < 0) clearInterval(timer);
-      }, 1000);
-    }
-    countdown();
+    // Countdown
+    const end = new Date().getTime() + 24*60*60*1000;
+    setInterval(() => {
+      const distance = end - new Date().getTime();
+      const h = String(Math.floor((distance % (86400000)) / 3600000)).padStart(2, '0');
+      const m = String(Math.floor((distance % 3600000) / 60000)).padStart(2, '0');
+      const s = String(Math.floor((distance % 60000) / 1000)).padStart(2, '0');
+      document.getElementById('countdown').innerText = `${h}:${m}:${s}`;
+    }, 1000);
   </script>
 </body>
 </html>
